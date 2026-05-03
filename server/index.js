@@ -14,8 +14,8 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials:true
+  origin: process.env.CLIENT_URL || "https://prep-wise-ai-eight.vercel.app",
+  credentials: true
 }))
 
 app.use(express.json())
