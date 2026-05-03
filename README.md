@@ -1,7 +1,7 @@
 
-# InterviewIQ - AI-Powered Mock Interview Platform
+# PrepWiseAi - AI-Powered Mock Interview Platform
 
-InterviewIQ is a cutting-edge platform designed to help job seekers ace their interviews through AI-driven simulations. By leveraging advanced LLMs (Large Language Models), the platform provides realistic interview experiences, personalized feedback, and performance analytics.
+PrepWiseAi is a cutting-edge platform designed to help job seekers ace their interviews through AI-driven simulations. By leveraging advanced LLMs (Large Language Models), the platform provides realistic interview experiences, personalized feedback, and performance analytics.
 
 ## 🚀 Features
 
@@ -36,7 +36,7 @@ InterviewIQ is a cutting-edge platform designed to help job seekers ace their in
 ## 📁 Project Structure
 
 ```bash
-interviewIQ/
+PrepWiseAi
 ├── client/          # React frontend (Vite)
 │   ├── src/         # Components, Pages, Redux Store
 │   └── public/      # Static assets
@@ -49,7 +49,7 @@ interviewIQ/
 
 # 🚀 PrepWiseAi — AI-Powered Mock Interview Platform
 
-InterviewIQ is a full-stack AI-driven mock interview platform designed to help users prepare for real-world interviews through personalized question generation, answer evaluation, and detailed performance analytics.
+PrepWiseAi is a full-stack AI-driven mock interview platform designed to help users prepare for real-world interviews through personalized question generation, answer evaluation, and detailed performance analytics.
 
 It simulates realistic interview scenarios using AI, analyzes responses based on role and experience, and provides actionable feedback to improve performance.
 
@@ -134,7 +134,7 @@ It simulates realistic interview scenarios using AI, analyzes responses based on
 # 📁 Project Structure
 
 ```
-3.interviewIQ/
+3.PrepWiseAi
 │
 ├── client/        # React frontend
 └── server/        # Node.js backend
@@ -153,7 +153,7 @@ It simulates realistic interview scenarios using AI, analyzes responses based on
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd interviewIQ
+cd PrepWiseAi
 ```
 
 ### 2. Backend Setup
