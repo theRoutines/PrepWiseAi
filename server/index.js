@@ -14,9 +14,9 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors({
-  origin: process.env.CLIENT_URL || "https://prep-wise-ai-eight.vercel.app",
+  origin: "https://prep-wise-ai-zeta.vercel.app",
   credentials: true
-}))
+}));
 
 app.use(express.json())
 app.use(cookieParser())
