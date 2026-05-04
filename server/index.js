@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors({
-  origin: "https://prep-wise-ai-zeta.vercel.app",
+  origin: process.env.CLIENT_URL,
   credentials: true
 }));
 
