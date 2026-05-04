@@ -16,16 +16,35 @@ function Auth({isModel = false}) {
 
     const handleGoogleAuth = async () => {
         try {
+            console.log("Starting Google Auth popup...");
             const response = await signInWithPopup(auth,provider)
-            let User = response.user
-            let name = User.displayName
-            let email = User.email
+            const User = response.user
+            const name = User.displayName
+            const email = User.email
+            
+            console.log(`Firebase auth successful for ${email}. Sending to backend: ${ServerUrl}`);
+            
             const result = await axios.post(ServerUrl + "/api/auth/google" , {name , email} , {withCredentials:true})
+            
+            console.log("Backend auth successful:", result.data);
             dispatch(setUserData(result.data))
             if(!isModel) navigate("/")
         } catch (error) {
-            console.log(error)
-              dispatch(setUserData(null))
+            console.error("Authentication Error Details:", error);
+            let errorMessage = "An error occurred during sign in.";
+            
+            if (error.code === 'auth/popup-closed-by-user') {
+                errorMessage = "The sign-in popup was closed before completion.";
+            } else if (error.response) {
+                // Backend error
+                errorMessage = `Server Error: ${error.response.data.message || error.response.statusText}`;
+            } else if (error.request) {
+                // Network error
+                errorMessage = "Unable to connect to the server. Please check if the backend is running and CORS is allowed.";
+            }
+            
+            alert(errorMessage);
+            dispatch(setUserData(null))
         }
     }
   return (

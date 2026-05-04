@@ -13,10 +13,24 @@ app.use((req, res, next) => {
     res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
     next();
 });
+
+const allowedOrigins = [process.env.CLIENT_URL, "http://localhost:5173", "http://localhost:5174", "http://localhost:3000"];
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
+
+// Request logging for auth
+app.use("/api/auth/google", (req, res, next) => {
+    console.log(`Auth attempt: ${req.method} ${req.url} from ${req.headers.origin}`);
+    next();
+});
 
 app.use(express.json())
 app.use(cookieParser())
